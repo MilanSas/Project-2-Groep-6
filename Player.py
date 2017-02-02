@@ -10,16 +10,18 @@ class Player:
         self.img = img
         self.name = name
         self.quests = self.createquests(landmarks)
+        self.playerturns = 0
         self.lastdirection = []
 
     def createquests(self, list):
         quests = []
+        listnum = len(list)
         for i in range(3):
-            n = random.randint(0, len(landmarks)- 1)
+            n = random.randint(0, listnum - 1)
             q = list[n]
             quests.append(q)
             list.remove(q)
-            print(quests[i])
+            listnum -= 1
         return quests
 
     def draw(self, screen, cSize, rSize, voffset):
